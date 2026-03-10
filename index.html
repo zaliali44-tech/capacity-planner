@@ -10,15 +10,19 @@
       --card:#ffffff;
       --text:#0f172a;
       --muted:#64748b;
-      --line:#e2e8f0;
+      --line:#dbe4ee;
       --primary:#0f766e;
       --primary-dark:#115e59;
       --secondary:#0ea5e9;
       --accent:#f59e0b;
       --success:#16a34a;
       --danger:#dc2626;
-      --shadow:0 10px 25px rgba(15,23,42,0.08);
-      --radius:18px;
+      --warning:#f59e0b;
+      --soft-success:#dcfce7;
+      --soft-danger:#fee2e2;
+      --soft-warning:#fef3c7;
+      --shadow:0 10px 30px rgba(15,23,42,0.08);
+      --radius:20px;
     }
 
     *{
@@ -33,15 +37,15 @@
     }
 
     .container{
-      width:min(1450px, 94%);
+      width:min(1500px, 94%);
       margin:24px auto 40px;
     }
 
     .hero{
       background:linear-gradient(135deg, var(--primary), var(--secondary));
       color:#fff;
-      padding:28px 30px;
       border-radius:24px;
+      padding:28px 30px;
       box-shadow:var(--shadow);
       margin-bottom:22px;
     }
@@ -62,8 +66,8 @@
 
     .hero p{
       margin:0;
-      color:rgba(255,255,255,0.9);
-      max-width:850px;
+      max-width:920px;
+      color:rgba(255,255,255,0.92);
       font-size:15px;
       line-height:1.6;
     }
@@ -84,24 +88,45 @@
       transition:0.2s ease;
     }
 
-    .btn-primary{
-      background:#fff;
-      color:var(--primary-dark);
+    .btn:hover{
+      transform:translateY(-1px);
     }
 
-    .btn-primary:hover{
-      transform:translateY(-1px);
+    .btn-light{
+      background:#fff;
+      color:var(--primary-dark);
     }
 
     .btn-outline{
       background:rgba(255,255,255,0.14);
       color:#fff;
-      border:1px solid rgba(255,255,255,0.25);
+      border:1px solid rgba(255,255,255,0.24);
+    }
+
+    .pill-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .pill{
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.22);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
     }
 
     .grid{
       display:grid;
       gap:18px;
+    }
+
+    .grid-2{
+      grid-template-columns:repeat(2, minmax(0,1fr));
     }
 
     .grid-3{
@@ -110,10 +135,6 @@
 
     .grid-4{
       grid-template-columns:repeat(4, minmax(0,1fr));
-    }
-
-    .grid-2{
-      grid-template-columns:repeat(2, minmax(0,1fr));
     }
 
     .card{
@@ -126,18 +147,18 @@
 
     .card h2{
       margin:0 0 8px;
-      font-size:20px;
+      font-size:22px;
     }
 
     .card h3{
-      margin:0 0 14px;
-      font-size:17px;
+      margin:0 0 12px;
+      font-size:18px;
     }
 
     .card-sub{
       color:var(--muted);
       font-size:13px;
-      margin-bottom:18px;
+      margin-bottom:16px;
       line-height:1.5;
     }
 
@@ -161,8 +182,8 @@
 
     .field label{
       font-size:12px;
-      font-weight:700;
       color:#334155;
+      font-weight:700;
     }
 
     .field input,
@@ -185,10 +206,9 @@
 
     .summary-grid{
       display:grid;
-      grid-template-columns:repeat(6, minmax(0,1fr));
+      grid-template-columns:repeat(8, minmax(0,1fr));
       gap:14px;
-      margin-top:18px;
-      margin-bottom:20px;
+      margin:20px 0;
     }
 
     .metric{
@@ -205,11 +225,11 @@
       margin-bottom:10px;
       font-weight:700;
       text-transform:uppercase;
-      letter-spacing:0.4px;
+      letter-spacing:0.3px;
     }
 
     .metric .value{
-      font-size:28px;
+      font-size:26px;
       font-weight:800;
       line-height:1.1;
       margin-bottom:4px;
@@ -218,19 +238,16 @@
     .metric .mini{
       font-size:12px;
       color:var(--muted);
+      line-height:1.4;
     }
-
-    .success{ color:var(--success); }
-    .danger{ color:var(--danger); }
-    .accent{ color:var(--accent); }
-    .primary{ color:var(--primary); }
 
     .section-title{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:10px;
-      margin:22px 0 12px;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:12px;
+      flex-wrap:wrap;
     }
 
     .section-title h2{
@@ -239,7 +256,7 @@
     }
 
     .section-title p{
-      margin:0;
+      margin:3px 0 0;
       color:var(--muted);
       font-size:13px;
     }
@@ -248,12 +265,13 @@
       overflow:auto;
       border:1px solid var(--line);
       border-radius:16px;
+      background:#fff;
     }
 
     table{
       width:100%;
       border-collapse:collapse;
-      min-width:1100px;
+      min-width:1600px;
       background:#fff;
     }
 
@@ -263,6 +281,7 @@
       border-bottom:1px solid var(--line);
       font-size:13px;
       white-space:nowrap;
+      vertical-align:middle;
     }
 
     th{
@@ -288,18 +307,18 @@
       font-weight:700;
     }
 
-    .status.safe{
-      background:#dcfce7;
+    .safe{
+      background:var(--soft-success);
       color:#166534;
     }
 
-    .status.risk{
-      background:#fef3c7;
+    .risk{
+      background:var(--soft-warning);
       color:#92400e;
     }
 
-    .status.gap{
-      background:#fee2e2;
+    .gap{
+      background:var(--soft-danger);
       color:#991b1b;
     }
 
@@ -317,40 +336,123 @@
       padding:20px;
     }
 
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .info-box{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .info-box .k{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:6px;
+      text-transform:uppercase;
+    }
+
+    .info-box .v{
+      font-size:18px;
+      font-weight:800;
+    }
+
+    details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 20px;
+      font-weight:800;
+      font-size:16px;
+      background:#f8fafc;
+      border-bottom:1px solid var(--line);
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .glossary-content{
+      padding:18px 20px;
+    }
+
+    .glossary-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .formula-card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      background:#fff;
+    }
+
+    .formula-card h4{
+      margin:0 0 10px;
+      font-size:15px;
+    }
+
+    .formula-card p{
+      margin:0 0 10px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .formula{
+      display:block;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      font-family:Consolas, monospace;
+      font-size:12px;
+      color:#0f172a;
+      overflow:auto;
+    }
+
     .footer-note{
-      margin-top:20px;
+      margin-top:16px;
       font-size:13px;
       color:var(--muted);
       line-height:1.6;
     }
 
-    .pill-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
+    .success-text{ color:var(--success); }
+    .danger-text{ color:var(--danger); }
+    .accent-text{ color:var(--warning); }
+    .primary-text{ color:var(--primary); }
+
+    @media (max-width:1300px){
+      .summary-grid{
+        grid-template-columns:repeat(4, minmax(0,1fr));
+      }
+      .info-strip{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
     }
 
-    .pill{
-      background:#ecfeff;
-      color:#155e75;
-      border:1px solid #bae6fd;
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:12px;
-      font-weight:700;
-    }
-
-    @media (max-width:1200px){
-      .grid-4{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-      .summary-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
-    }
-
-    @media (max-width:900px){
+    @media (max-width:1000px){
       .grid-3,
       .grid-2,
+      .grid-4,
       .form-grid,
-      .form-grid-3{
+      .form-grid-3,
+      .glossary-grid{
         grid-template-columns:1fr;
       }
 
@@ -363,8 +465,9 @@
       }
     }
 
-    @media (max-width:600px){
-      .summary-grid{
+    @media (max-width:640px){
+      .summary-grid,
+      .info-strip{
         grid-template-columns:1fr;
       }
     }
@@ -379,19 +482,20 @@
         <div>
           <h1>Long-Term Capacity Planner</h1>
           <p>
-            Strategic week-wise and month-wise capacity planning dashboard for Workforce Management.
-            Plan using volume-based, HC-based, or hybrid logic while accounting for shrinkage, attrition,
-            training pipeline, off-roster HC, SME allocation, and overtime support.
+            Strategic week-wise and month-wise Workforce Management capacity planning dashboard with
+            custom week cycle, training pipeline visibility, weighted month roll-up, attrition and shrinkage targets,
+            and export-ready planning structure.
           </p>
           <div class="pill-row">
             <span class="pill">Weekly View</span>
-            <span class="pill">Monthly Roll-Up</span>
+            <span class="pill">Monthly Weighted View</span>
             <span class="pill">Training Pipeline</span>
-            <span class="pill">Excel Export Ready</span>
+            <span class="pill">Formula Glossary</span>
+            <span class="pill">Excel Model Ready</span>
           </div>
         </div>
         <div class="hero-actions">
-          <button class="btn btn-primary">Load Sample Data</button>
+          <button class="btn btn-light">Load Sample Data</button>
           <button class="btn btn-outline">Reset</button>
           <button class="btn btn-outline">Export CSV</button>
           <button class="btn btn-outline">Export Excel Model</button>
@@ -399,11 +503,11 @@
       </div>
     </section>
 
-    <!-- ASSUMPTIONS -->
+    <!-- CONFIGURATION -->
     <section class="grid grid-3">
       <div class="card">
-        <h3>General Assumptions</h3>
-        <div class="card-sub">Core planning setup for occupancy, shrinkage, productivity, and planning horizon.</div>
+        <h3>Planning Setup</h3>
+        <div class="card-sub">Control planning mode, date setup, week cycle, and planning horizon.</div>
         <div class="form-grid">
           <div class="field">
             <label>Planning Mode</label>
@@ -414,20 +518,52 @@
             </select>
           </div>
           <div class="field">
-            <label>View Mode</label>
+            <label>Display View</label>
             <select>
               <option>Weekly View</option>
               <option>Monthly View</option>
+              <option>Combined View</option>
             </select>
           </div>
           <div class="field">
-            <label>Start Week</label>
-            <input type="text" value="2026-W01">
+            <label>Planning Start Date</label>
+            <input type="date" value="2026-01-02">
+          </div>
+          <div class="field">
+            <label>Week Pattern</label>
+            <select>
+              <option>Mon-Sun</option>
+              <option>Sun-Sat</option>
+              <option>Fri-Thu</option>
+              <option>Custom 7-Day Cycle</option>
+            </select>
           </div>
           <div class="field">
             <label>Planning Horizon (Weeks)</label>
-            <input type="number" value="12">
+            <input type="number" value="16">
           </div>
+          <div class="field">
+            <label>Monthly Roll-Up</label>
+            <select>
+              <option>Calendar Weighted</option>
+              <option>Primary Month Tag</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Scenario Name</label>
+            <input type="text" value="Base Case">
+          </div>
+          <div class="field">
+            <label>Buffer %</label>
+            <input type="number" value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Capacity Assumptions</h3>
+        <div class="card-sub">Core assumptions used for requirement, shrinkage, attrition, and effective capacity.</div>
+        <div class="form-grid">
           <div class="field">
             <label>Occupancy %</label>
             <input type="number" value="85">
@@ -435,6 +571,10 @@
           <div class="field">
             <label>Productive Hours / HC / Week</label>
             <input type="number" value="37.5">
+          </div>
+          <div class="field">
+            <label>Target Shrinkage %</label>
+            <input type="number" value="20">
           </div>
           <div class="field">
             <label>Planned Shrinkage %</label>
@@ -449,15 +589,19 @@
             <input type="number" value="20" readonly>
           </div>
           <div class="field">
-            <label>Attrition %</label>
+            <label>Target Attrition %</label>
+            <input type="number" value="3">
+          </div>
+          <div class="field">
+            <label>Expected Attrition %</label>
             <input type="number" value="3">
           </div>
         </div>
       </div>
 
       <div class="card">
-        <h3>Training Assumptions</h3>
-        <div class="card-sub">Build the training pipeline properly so hires do not become instantly productive.</div>
+        <h3>Training & Support Assumptions</h3>
+        <div class="card-sub">Capture training duration, nesting ramp, pass rate, and support HC productivity logic.</div>
         <div class="form-grid">
           <div class="field">
             <label>Training Duration (Weeks)</label>
@@ -472,85 +616,32 @@
             <input type="number" value="90">
           </div>
           <div class="field">
-            <label>Early Dropout %</label>
-            <input type="number" value="5">
-          </div>
-          <div class="field">
             <label>Nesting Productivity %</label>
             <input type="number" value="65">
           </div>
           <div class="field">
-            <label>Full Productivity After Nesting</label>
-            <select>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
+            <label>SME Productive %</label>
+            <input type="number" value="40">
           </div>
           <div class="field">
-            <label>Training Start Rule</label>
-            <select>
-              <option>Use Batch Start Week</option>
-              <option>Use Global Training Start</option>
-            </select>
+            <label>Off-Roster Productive %</label>
+            <input type="number" value="25">
+          </div>
+          <div class="field">
+            <label>SME Productive Hours / Week</label>
+            <input type="number" value="15">
+          </div>
+          <div class="field">
+            <label>Off-Roster Productive Hours / Week</label>
+            <input type="number" value="9">
           </div>
           <div class="field">
             <label>OT to HC Conversion Base</label>
             <input type="number" value="37.5">
           </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Capacity Controls</h3>
-        <div class="card-sub">Optional planning controls for buffer, support HC, and productivity treatment.</div>
-        <div class="form-grid">
           <div class="field">
             <label>Working Days / Week</label>
             <input type="number" value="5">
-          </div>
-          <div class="field">
-            <label>Buffer %</label>
-            <input type="number" value="0">
-          </div>
-          <div class="field">
-            <label>SME Counted as Productive?</label>
-            <select>
-              <option>No</option>
-              <option>Yes</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Off-Roster Counted in Available HC?</label>
-            <select>
-              <option>No</option>
-              <option>Yes</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Transfers Enabled?</label>
-            <select>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Status Threshold</label>
-            <select>
-              <option>Standard</option>
-              <option>Strict</option>
-              <option>Relaxed</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Month Aggregation</label>
-            <select>
-              <option>Auto from Weeks</option>
-              <option>Direct Month Input</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Scenario Name</label>
-            <input type="text" value="Base Case">
           </div>
         </div>
       </div>
@@ -560,51 +651,91 @@
     <section class="summary-grid">
       <div class="metric">
         <div class="label">Required HC</div>
-        <div class="value primary">248</div>
-        <div class="mini">Week 1 current requirement</div>
+        <div class="value primary-text">248</div>
+        <div class="mini">Current week requirement</div>
       </div>
       <div class="metric">
-        <div class="label">Available HC</div>
-        <div class="value">236</div>
-        <div class="mini">After shrinkage and training logic</div>
+        <div class="label">Final Available HC</div>
+        <div class="value">194.4</div>
+        <div class="mini">After shrinkage and OT</div>
       </div>
       <div class="metric">
         <div class="label">Net Gap</div>
-        <div class="value danger">-12</div>
-        <div class="mini">Deficit before mitigation</div>
+        <div class="value danger-text">-53.6</div>
+        <div class="mini">Deficit against requirement</div>
       </div>
       <div class="metric">
-        <div class="label">OT Equivalent HC</div>
-        <div class="value accent">6.4</div>
-        <div class="mini">Converted from OT hours</div>
+        <div class="label">Training HC</div>
+        <div class="value accent-text">33</div>
+        <div class="mini">Currently in training</div>
       </div>
       <div class="metric">
-        <div class="label">Training Pipeline HC</div>
-        <div class="value">42</div>
-        <div class="mini">In training and nesting combined</div>
+        <div class="label">Graduate HC</div>
+        <div class="value success-text">18</div>
+        <div class="mini">Upcoming release from training</div>
       </div>
       <div class="metric">
-        <div class="label">Month-End HC</div>
-        <div class="value success">252</div>
-        <div class="mini">Projected end of month</div>
+        <div class="label">Nesting HC</div>
+        <div class="value">12</div>
+        <div class="mini">In partial productivity stage</div>
+      </div>
+      <div class="metric">
+        <div class="label">Attrition %</div>
+        <div class="value danger-text">3.4%</div>
+        <div class="mini">Against target 3.0%</div>
+      </div>
+      <div class="metric">
+        <div class="label">Shrinkage %</div>
+        <div class="value accent-text">20.8%</div>
+        <div class="mini">Against target 20.0%</div>
+      </div>
+    </section>
+
+    <!-- DATE MAPPING -->
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <h2>Generated Planning Calendar</h2>
+          <p>Week ranges are driven by the user-selected planning start date and week cycle.</p>
+        </div>
+      </div>
+
+      <div class="info-strip">
+        <div class="info-box">
+          <div class="k">Planning Start</div>
+          <div class="v">02 Jan 2026</div>
+        </div>
+        <div class="info-box">
+          <div class="k">Week Pattern</div>
+          <div class="v">Fri-Thu</div>
+        </div>
+        <div class="info-box">
+          <div class="k">Weeks Generated</div>
+          <div class="v">16</div>
+        </div>
+        <div class="info-box">
+          <div class="k">Monthly Roll-Up</div>
+          <div class="v">Calendar Weighted</div>
+        </div>
       </div>
     </section>
 
     <!-- DEMAND + SUPPLY -->
-    <section class="grid grid-2">
+    <section class="grid grid-2" style="margin-top:18px;">
       <div class="card">
         <div class="section-title">
           <div>
             <h2>Weekly Demand Plan</h2>
-            <p>Use volume, AHT, and manual HC inputs depending on planning mode.</p>
+            <p>Forecast and demand-side inputs used to derive required hours and required HC.</p>
           </div>
         </div>
         <div class="table-wrap">
-          <table>
+          <table style="min-width:1200px;">
             <thead>
               <tr>
                 <th>Week</th>
-                <th>Month</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th>Forecast Volume</th>
                 <th>AHT (Sec)</th>
                 <th>Manual HC Add-On</th>
@@ -615,7 +746,8 @@
             <tbody>
               <tr>
                 <td>2026-W01</td>
-                <td>Jan-26</td>
+                <td>02-Jan-26</td>
+                <td>08-Jan-26</td>
                 <td><input type="number" value="125000"></td>
                 <td><input type="number" value="420"></td>
                 <td><input type="number" value="5"></td>
@@ -624,7 +756,8 @@
               </tr>
               <tr>
                 <td>2026-W02</td>
-                <td>Jan-26</td>
+                <td>09-Jan-26</td>
+                <td>15-Jan-26</td>
                 <td><input type="number" value="128500"></td>
                 <td><input type="number" value="415"></td>
                 <td><input type="number" value="5"></td>
@@ -633,7 +766,8 @@
               </tr>
               <tr>
                 <td>2026-W03</td>
-                <td>Jan-26</td>
+                <td>16-Jan-26</td>
+                <td>22-Jan-26</td>
                 <td><input type="number" value="130200"></td>
                 <td><input type="number" value="418"></td>
                 <td><input type="number" value="6"></td>
@@ -642,7 +776,8 @@
               </tr>
               <tr>
                 <td>2026-W04</td>
-                <td>Jan-26</td>
+                <td>23-Jan-26</td>
+                <td>29-Jan-26</td>
                 <td><input type="number" value="127000"></td>
                 <td><input type="number" value="410"></td>
                 <td><input type="number" value="4"></td>
@@ -658,11 +793,11 @@
         <div class="section-title">
           <div>
             <h2>Weekly Supply Plan</h2>
-            <p>Track opening HC, classes, attrition, support HC, and OT hours.</p>
+            <p>Workforce-side inputs including classes, transfers, support HC, and overtime.</p>
           </div>
         </div>
         <div class="table-wrap">
-          <table>
+          <table style="min-width:1350px;">
             <thead>
               <tr>
                 <th>Week</th>
@@ -671,10 +806,12 @@
                 <th>Actual Class HC</th>
                 <th>Transfers In</th>
                 <th>Transfers Out</th>
-                <th>Attrition</th>
                 <th>SME HC</th>
                 <th>Off-Roster HC</th>
                 <th>OT Hours</th>
+                <th>Target Attrition %</th>
+                <th>Actual Attrition HC</th>
+                <th>Actual Attrition %</th>
               </tr>
             </thead>
             <tbody>
@@ -685,10 +822,12 @@
                 <td><input type="number" value="18"></td>
                 <td><input type="number" value="0"></td>
                 <td><input type="number" value="0"></td>
-                <td><input type="number" value="5"></td>
                 <td><input type="number" value="6"></td>
                 <td><input type="number" value="4"></td>
                 <td><input type="number" value="240"></td>
+                <td>3.0%</td>
+                <td><input type="number" value="5"></td>
+                <td>2.0%</td>
               </tr>
               <tr>
                 <td>2026-W02</td>
@@ -697,10 +836,12 @@
                 <td><input type="number" value="0"></td>
                 <td><input type="number" value="2"></td>
                 <td><input type="number" value="0"></td>
-                <td><input type="number" value="4"></td>
                 <td><input type="number" value="6"></td>
                 <td><input type="number" value="4"></td>
                 <td><input type="number" value="260"></td>
+                <td>3.0%</td>
+                <td><input type="number" value="4"></td>
+                <td>1.6%</td>
               </tr>
               <tr>
                 <td>2026-W03</td>
@@ -709,10 +850,12 @@
                 <td><input type="number" value="15"></td>
                 <td><input type="number" value="0"></td>
                 <td><input type="number" value="1"></td>
-                <td><input type="number" value="3"></td>
                 <td><input type="number" value="7"></td>
                 <td><input type="number" value="4"></td>
                 <td><input type="number" value="220"></td>
+                <td>3.0%</td>
+                <td><input type="number" value="3"></td>
+                <td>1.2%</td>
               </tr>
               <tr>
                 <td>2026-W04</td>
@@ -721,10 +864,12 @@
                 <td><input type="number" value="0"></td>
                 <td><input type="number" value="0"></td>
                 <td><input type="number" value="0"></td>
-                <td><input type="number" value="4"></td>
                 <td><input type="number" value="7"></td>
                 <td><input type="number" value="5"></td>
                 <td><input type="number" value="180"></td>
+                <td>3.0%</td>
+                <td><input type="number" value="4"></td>
+                <td>1.7%</td>
               </tr>
             </tbody>
           </table>
@@ -736,71 +881,96 @@
     <section class="card" style="margin-top:18px;">
       <div class="section-title">
         <div>
-          <h2>Training Pipeline</h2>
-          <p>System-calculated view to show when training classes turn into productive HC.</p>
+          <h2>Training Pipeline View</h2>
+          <p>Track how classes move through training, graduate, enter nesting, and become productive.</p>
         </div>
       </div>
       <div class="table-wrap">
-        <table>
+        <table style="min-width:1450px;">
           <thead>
             <tr>
               <th>Week</th>
-              <th>New HC Entering Training</th>
-              <th>HC in Training</th>
-              <th>HC Graduating</th>
-              <th>HC in Nesting</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Training HC</th>
+              <th>Graduate HC</th>
+              <th>Nesting HC</th>
               <th>Nesting Effective HC</th>
               <th>Fully Productive HC Released</th>
+              <th>Target Shrinkage %</th>
+              <th>Actual Shrinkage %</th>
+              <th>Target Attrition %</th>
+              <th>Actual Attrition %</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>2026-W01</td>
-              <td>18</td>
+              <td>02-Jan-26</td>
+              <td>08-Jan-26</td>
               <td>18</td>
               <td>0</td>
               <td>0</td>
               <td>0.0</td>
               <td>0</td>
+              <td>20.0%</td>
+              <td>19.5%</td>
+              <td>3.0%</td>
+              <td>2.0%</td>
             </tr>
             <tr>
               <td>2026-W02</td>
-              <td>0</td>
+              <td>09-Jan-26</td>
+              <td>15-Jan-26</td>
               <td>18</td>
               <td>0</td>
               <td>0</td>
               <td>0.0</td>
               <td>0</td>
+              <td>20.0%</td>
+              <td>20.4%</td>
+              <td>3.0%</td>
+              <td>1.6%</td>
             </tr>
             <tr>
               <td>2026-W03</td>
-              <td>15</td>
+              <td>16-Jan-26</td>
+              <td>22-Jan-26</td>
               <td>33</td>
               <td>0</td>
               <td>0</td>
               <td>0.0</td>
               <td>0</td>
+              <td>20.0%</td>
+              <td>21.0%</td>
+              <td>3.0%</td>
+              <td>1.2%</td>
             </tr>
             <tr>
               <td>2026-W04</td>
-              <td>0</td>
+              <td>23-Jan-26</td>
+              <td>29-Jan-26</td>
               <td>33</td>
               <td>0</td>
               <td>0</td>
               <td>0.0</td>
               <td>0</td>
+              <td>20.0%</td>
+              <td>20.8%</td>
+              <td>3.0%</td>
+              <td>1.7%</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- CAPACITY CALC -->
+    <!-- WEEKLY CAPACITY VIEW -->
     <section class="card" style="margin-top:18px;">
       <div class="section-title">
         <div>
           <h2>Weekly Capacity View</h2>
-          <p>Net supply after shrinkage, support allocation, and OT conversion.</p>
+          <p>Detailed weekly capacity output including targets, pipeline, productivity support, and final gap.</p>
         </div>
       </div>
       <div class="table-wrap">
@@ -808,10 +978,27 @@
           <thead>
             <tr>
               <th>Week</th>
+              <th>Start Date</th>
+              <th>End Date</th>
               <th>Required HC</th>
+              <th>Opening HC</th>
+              <th>Training HC</th>
+              <th>Graduate HC</th>
+              <th>Nesting HC</th>
+              <th>Nesting Eff HC</th>
+              <th>Attrition HC</th>
+              <th>Target Attr %</th>
+              <th>Actual Attr %</th>
+              <th>Target Shrink %</th>
+              <th>Actual Shrink %</th>
+              <th>SME HC</th>
+              <th>SME Prod %</th>
+              <th>Off-Roster HC</th>
+              <th>Off-Roster Prod %</th>
               <th>Gross Available HC</th>
               <th>Net HC Before Shrinkage</th>
               <th>Effective HC</th>
+              <th>OT Hours</th>
               <th>OT Eq HC</th>
               <th>Final Available HC</th>
               <th>Gap</th>
@@ -821,10 +1008,27 @@
           <tbody>
             <tr>
               <td>2026-W01</td>
+              <td>02-Jan-26</td>
+              <td>08-Jan-26</td>
               <td>248</td>
+              <td>250</td>
+              <td>18</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0.0</td>
+              <td>5</td>
+              <td>3.0%</td>
+              <td>2.0%</td>
+              <td>20.0%</td>
+              <td>19.5%</td>
+              <td>6</td>
+              <td>40%</td>
+              <td>4</td>
+              <td>25%</td>
               <td>245</td>
               <td>235</td>
-              <td>188</td>
+              <td>188.0</td>
+              <td>240</td>
               <td>6.4</td>
               <td>194.4</td>
               <td>-53.6</td>
@@ -832,10 +1036,27 @@
             </tr>
             <tr>
               <td>2026-W02</td>
+              <td>09-Jan-26</td>
+              <td>15-Jan-26</td>
               <td>251</td>
+              <td>245</td>
+              <td>18</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0.0</td>
+              <td>4</td>
+              <td>3.0%</td>
+              <td>1.6%</td>
+              <td>20.0%</td>
+              <td>20.4%</td>
+              <td>6</td>
+              <td>40%</td>
+              <td>4</td>
+              <td>25%</td>
               <td>243</td>
               <td>233</td>
               <td>186.4</td>
+              <td>260</td>
               <td>6.9</td>
               <td>193.3</td>
               <td>-57.7</td>
@@ -843,10 +1064,27 @@
             </tr>
             <tr>
               <td>2026-W03</td>
+              <td>16-Jan-26</td>
+              <td>22-Jan-26</td>
               <td>255</td>
+              <td>243</td>
+              <td>33</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0.0</td>
+              <td>3</td>
+              <td>3.0%</td>
+              <td>1.2%</td>
+              <td>20.0%</td>
+              <td>21.0%</td>
+              <td>7</td>
+              <td>40%</td>
+              <td>4</td>
+              <td>25%</td>
               <td>239</td>
               <td>228</td>
               <td>182.4</td>
+              <td>220</td>
               <td>5.9</td>
               <td>188.3</td>
               <td>-66.7</td>
@@ -854,10 +1092,27 @@
             </tr>
             <tr>
               <td>2026-W04</td>
+              <td>23-Jan-26</td>
+              <td>29-Jan-26</td>
               <td>244</td>
+              <td>239</td>
+              <td>33</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0.0</td>
+              <td>4</td>
+              <td>3.0%</td>
+              <td>1.7%</td>
+              <td>20.0%</td>
+              <td>20.8%</td>
+              <td>7</td>
+              <td>40%</td>
+              <td>5</td>
+              <td>25%</td>
               <td>235</td>
               <td>223</td>
               <td>178.4</td>
+              <td>180</td>
               <td>4.8</td>
               <td>183.2</td>
               <td>-60.8</td>
@@ -871,14 +1126,14 @@
     <!-- CHARTS -->
     <section class="grid grid-2" style="margin-top:18px;">
       <div class="card">
-        <h3>Required HC vs Available HC</h3>
-        <div class="card-sub">Weekly comparison chart for supply against requirement.</div>
-        <div class="chart-box">Chart placeholder: Required HC vs Available HC by Week</div>
+        <h3>Required HC vs Final Available HC</h3>
+        <div class="card-sub">Weekly comparison of requirement, effective supply, and gap after OT.</div>
+        <div class="chart-box">Chart placeholder: Required HC vs Final Available HC by Week</div>
       </div>
       <div class="card">
-        <h3>Hiring and Attrition Trend</h3>
-        <div class="card-sub">Track training pipeline output and losses over time.</div>
-        <div class="chart-box">Chart placeholder: Hires, Graduations, Attrition Trend</div>
+        <h3>Training, Graduation, and Attrition Trend</h3>
+        <div class="card-sub">Track pipeline movement and workforce losses across the planning horizon.</div>
+        <div class="chart-box">Chart placeholder: Training HC, Graduate HC, Nesting HC, Attrition HC</div>
       </div>
     </section>
 
@@ -886,8 +1141,8 @@
     <section class="card" style="margin-top:18px;">
       <div class="section-title">
         <div>
-          <h2>Monthly Summary</h2>
-          <p>Auto-roll up the weekly model into a month-wise leadership view.</p>
+          <h2>Monthly Weighted Summary</h2>
+          <p>Month view should combine overlapping weeks based on actual calendar day allocation and weighted logic.</p>
         </div>
       </div>
       <div class="table-wrap">
@@ -895,13 +1150,24 @@
           <thead>
             <tr>
               <th>Month</th>
-              <th>Avg Required HC</th>
-              <th>Avg Available HC</th>
+              <th>Days Covered</th>
+              <th>Weighted Required HC</th>
+              <th>Weighted Final Available HC</th>
               <th>Net Gap</th>
-              <th>Planned Hires</th>
-              <th>Actual Hires</th>
-              <th>Attrition</th>
-              <th>Avg Shrinkage %</th>
+              <th>Opening HC</th>
+              <th>Training HC</th>
+              <th>Graduate HC</th>
+              <th>Nesting HC</th>
+              <th>Nesting Eff HC</th>
+              <th>Attrition HC</th>
+              <th>Target Attr %</th>
+              <th>Actual Attr %</th>
+              <th>Target Shrink %</th>
+              <th>Actual Shrink %</th>
+              <th>SME HC</th>
+              <th>SME Eff HC</th>
+              <th>Off-Roster HC</th>
+              <th>Off-Roster Eff HC</th>
               <th>Total OT Hours</th>
               <th>OT Eq HC</th>
               <th>End Month HC</th>
@@ -910,26 +1176,48 @@
           <tbody>
             <tr>
               <td>Jan-26</td>
+              <td>28</td>
               <td>249.5</td>
               <td>189.8</td>
               <td>-59.7</td>
-              <td>35</td>
-              <td>33</td>
+              <td>250</td>
+              <td>25.5</td>
+              <td>0.0</td>
+              <td>0.0</td>
+              <td>0.0</td>
               <td>16</td>
-              <td>20%</td>
+              <td>3.0%</td>
+              <td>1.6%</td>
+              <td>20.0%</td>
+              <td>20.4%</td>
+              <td>6.5</td>
+              <td>2.6</td>
+              <td>4.3</td>
+              <td>1.1</td>
               <td>900</td>
               <td>24.0</td>
               <td>239</td>
             </tr>
             <tr>
               <td>Feb-26</td>
+              <td>28</td>
               <td>256.2</td>
               <td>214.6</td>
               <td>-41.6</td>
-              <td>25</td>
-              <td>24</td>
+              <td>239</td>
+              <td>18.0</td>
+              <td>14.4</td>
+              <td>10.2</td>
+              <td>6.6</td>
               <td>14</td>
-              <td>20%</td>
+              <td>3.0%</td>
+              <td>2.4%</td>
+              <td>20.0%</td>
+              <td>19.8%</td>
+              <td>7.0</td>
+              <td>2.8</td>
+              <td>4.8</td>
+              <td>1.2</td>
               <td>720</td>
               <td>19.2</td>
               <td>248</td>
@@ -939,24 +1227,110 @@
       </div>
     </section>
 
-    <!-- EXPORT -->
+    <!-- EXPORT CENTER -->
     <section class="card" style="margin-top:18px;">
       <h3>Export Center</h3>
       <div class="card-sub">
-        Export the planner for reporting or for further adjustments in Excel. The Excel model should carry user assumptions and formulas.
+        Export the planner for reporting, dashboard sharing, or Excel-based model adjustments using the same user assumptions and logic.
       </div>
-
       <div class="grid grid-4">
-        <button class="btn btn-primary" style="background:var(--primary); color:#fff;">Export Dashboard CSV</button>
-        <button class="btn btn-primary" style="background:var(--secondary); color:#fff;">Export Excel Model</button>
-        <button class="btn btn-primary" style="background:var(--accent); color:#fff;">Download Sample Template</button>
-        <button class="btn btn-primary" style="background:#334155; color:#fff;">Save Scenario</button>
+        <button class="btn" style="background:var(--primary); color:#fff;">Export Dashboard CSV</button>
+        <button class="btn" style="background:var(--secondary); color:#fff;">Export Excel Model</button>
+        <button class="btn" style="background:var(--accent); color:#fff;">Download Sample Template</button>
+        <button class="btn" style="background:#334155; color:#fff;">Save Scenario</button>
       </div>
-
       <div class="footer-note">
-        Recommended Excel workbook tabs: Assumptions, Demand Plan, Supply Plan, Training Pipeline,
-        Capacity Calculation, Monthly Summary, Dashboard Output.
+        Recommended workbook tabs: Assumptions, Planning Calendar, Demand Plan, Supply Plan, Training Pipeline,
+        Weekly Capacity, Monthly Weighted Summary, Formula Glossary.
       </div>
+    </section>
+
+    <!-- FORMULA GLOSSARY -->
+    <section style="margin-top:18px;">
+      <details open>
+        <summary>Formula Glossary</summary>
+        <div class="glossary-content">
+          <div class="glossary-grid">
+            <div class="formula-card">
+              <h4>Required Hours</h4>
+              <p>Converts forecast volume and AHT into workload hours.</p>
+              <span class="formula">Required Hours = (Forecast Volume × AHT) / 3600</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Volume-Based Required HC</h4>
+              <p>Uses required hours, productive hours, occupancy, and any buffer to estimate required HC.</p>
+              <span class="formula">Required HC = (Required Hours / Productive Hours per HC) / Occupancy + Manual HC Add-On + Buffer</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Total Shrinkage %</h4>
+              <p>Combines planned and unplanned shrinkage assumptions.</p>
+              <span class="formula">Total Shrinkage % = Planned Shrinkage % + Unplanned Shrinkage %</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Graduate HC</h4>
+              <p>HC graduating from training after training duration and pass rate adjustment.</p>
+              <span class="formula">Graduate HC = Training Batch HC × Pass Rate %</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Nesting Effective HC</h4>
+              <p>Partial productivity contribution from HC currently in nesting.</p>
+              <span class="formula">Nesting Effective HC = Nesting HC × Nesting Productivity %</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>SME Effective HC</h4>
+              <p>Counts only the productive portion of SME HC.</p>
+              <span class="formula">SME Effective HC = SME HC × SME Productive %</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Off-Roster Effective HC</h4>
+              <p>Counts only the productive portion of Off-Roster HC.</p>
+              <span class="formula">Off-Roster Effective HC = Off-Roster HC × Off-Roster Productive %</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Net HC Before Shrinkage</h4>
+              <p>Supply after key additions and deductions, before shrinkage is applied.</p>
+              <span class="formula">Net HC Before Shrinkage = Gross Available HC - Attrition HC - Non-Productive Support Deductions + Effective Support Contributions</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Effective HC</h4>
+              <p>Available HC adjusted by actual shrinkage.</p>
+              <span class="formula">Effective HC = Net HC Before Shrinkage × (1 - Actual Shrinkage %)</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>OT Equivalent HC</h4>
+              <p>Converts OT hours into HC equivalent.</p>
+              <span class="formula">OT Eq HC = OT Hours / Productive Hours per HC per Week</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Final Available HC</h4>
+              <p>Total effective supply after shrinkage and OT contribution.</p>
+              <span class="formula">Final Available HC = Effective HC + OT Eq HC + Nesting Effective HC</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Gap</h4>
+              <p>Final capacity position versus requirement.</p>
+              <span class="formula">Gap = Final Available HC - Required HC</span>
+            </div>
+
+            <div class="formula-card">
+              <h4>Monthly Weighted Roll-Up</h4>
+              <p>Allocates weekly values into months based on actual number of calendar days falling in that month.</p>
+              <span class="formula">Monthly Value = Σ(Weekly Value × Days in Month Portion / 7)</span>
+            </div>
+          </div>
+        </div>
+      </details>
     </section>
 
   </div>
