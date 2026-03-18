@@ -10,46 +10,65 @@
 
   <style>
     :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#64748b;
-      --line:#dbe4ee;
-      --primary:#0f766e;
-      --primary-dark:#115e59;
-      --secondary:#0ea5e9;
-      --accent:#f59e0b;
-      --success:#16a34a;
-      --danger:#dc2626;
-      --warning:#f59e0b;
-      --soft-success:#dcfce7;
-      --soft-danger:#fee2e2;
-      --soft-warning:#fef3c7;
-      --shadow:0 10px 30px rgba(15,23,42,0.08);
+      --bg:#020816;
+      --card:#071326;
+      --card-2:#09182f;
+      --text:#f4f8ff;
+      --muted:#a8bfdc;
+      --line:rgba(57,110,201,.28);
+      --line-2:rgba(95,137,204,.22);
+      --primary:#15e6ff;
+      --primary-dark:#0cc6de;
+      --secondary:#60a5fa;
+      --accent:#ffbf47;
+      --success:#36e39c;
+      --danger:#ff6b7a;
+      --warning:#ffbf47;
+      --soft-success:rgba(54,227,156,.14);
+      --soft-danger:rgba(255,107,122,.14);
+      --soft-warning:rgba(255,191,71,.14);
+      --shadow:0 10px 30px rgba(0,0,0,.34);
       --radius:20px;
+      --glow:0 0 0 1px rgba(21,230,255,.12), 0 0 24px rgba(21,230,255,.08);
     }
 
     *{ box-sizing:border-box; }
 
-    body{
+    html, body{
       margin:0;
-      font-family:Arial, sans-serif;
-      background:var(--bg);
+      padding:0;
+      font-family:Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(32,110,255,.18), transparent 28%),
+        radial-gradient(circle at 78% 10%, rgba(21,230,255,.14), transparent 24%),
+        linear-gradient(180deg, #031022 0%, #020816 44%, #01050f 100%);
+      background-attachment:fixed;
       color:var(--text);
     }
 
+    body{
+      padding:6px;
+      overflow-x:hidden;
+    }
+
     .container{
-      width:min(1520px, 94%);
-      margin:24px auto 40px;
+      width:100%;
+      max-width:none;
+      margin:0;
+      padding:10px 10px 22px;
     }
 
     .hero{
-      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      background:
+        radial-gradient(circle at 20% 20%, rgba(96,165,250,.20), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(21,230,255,.18), transparent 24%),
+        linear-gradient(135deg, rgba(8,20,40,.98), rgba(5,14,28,.96));
       color:#fff;
       border-radius:24px;
       padding:28px 30px;
-      box-shadow:var(--shadow);
-      margin-bottom:22px;
+      box-shadow:var(--shadow), var(--glow);
+      margin-bottom:18px;
+      border:1px solid var(--line);
     }
 
     .hero-top{
@@ -62,16 +81,19 @@
 
     .hero h1{
       margin:0 0 8px;
-      font-size:32px;
+      font-size:clamp(26px, 3.5vw, 42px);
       line-height:1.2;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      text-shadow:0 0 18px rgba(21,230,255,.12);
     }
 
     .hero p{
       margin:0;
       max-width:920px;
-      color:rgba(255,255,255,0.92);
+      color:rgba(234,243,255,0.92);
       font-size:15px;
-      line-height:1.6;
+      line-height:1.7;
     }
 
     .hero-actions{
@@ -82,10 +104,10 @@
 
     .btn{
       border:none;
-      border-radius:12px;
+      border-radius:999px;
       padding:12px 16px;
-      font-size:14px;
-      font-weight:700;
+      font-size:13px;
+      font-weight:800;
       cursor:pointer;
       transition:0.2s ease;
     }
@@ -93,18 +115,23 @@
     .btn:hover{ transform:translateY(-1px); }
 
     .btn-light{
-      background:#fff;
-      color:var(--primary-dark);
+      background:linear-gradient(180deg, rgba(25,244,255,.95), rgba(9,201,226,.92));
+      color:#03101c;
+      border:1px solid rgba(21,230,255,.82);
+      box-shadow:0 0 0 1px rgba(21,230,255,.18), 0 0 18px rgba(21,230,255,.18);
     }
 
     .btn-outline{
-      background:rgba(255,255,255,0.14);
-      color:#fff;
-      border:1px solid rgba(255,255,255,0.24);
+      background:rgba(9,21,42,.78);
+      color:#ffffff;
+      border:1px solid rgba(76,137,232,.4);
+      box-shadow:0 0 0 1px rgba(79,144,255,.08), inset 0 0 0 1px rgba(255,255,255,.02);
     }
 
     .btn-solid{
       color:#fff;
+      border:1px solid rgba(76,137,232,.4);
+      box-shadow:0 0 0 1px rgba(79,144,255,.08), inset 0 0 0 1px rgba(255,255,255,.02);
     }
 
     .pill-row{
@@ -115,9 +142,9 @@
     }
 
     .pill{
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.22);
-      color:#fff;
+      background:rgba(21,230,255,.12);
+      border:1px solid rgba(21,230,255,.28);
+      color:#8ff8ff;
       padding:8px 12px;
       border-radius:999px;
       font-size:12px;
@@ -134,28 +161,32 @@
     .grid-4{ grid-template-columns:repeat(4, minmax(0,1fr)); }
 
     .card{
-      background:var(--card);
+      background:linear-gradient(180deg, rgba(8,20,40,.96) 0%, rgba(5,14,28,.96) 100%);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow), var(--glow);
       padding:20px;
+      backdrop-filter:blur(10px) saturate(1.06);
+      -webkit-backdrop-filter:blur(10px) saturate(1.06);
     }
 
     .card h2{
       margin:0 0 8px;
       font-size:22px;
+      color:#ffffff;
     }
 
     .card h3{
       margin:0 0 12px;
       font-size:18px;
+      color:#ffffff;
     }
 
     .card-sub{
       color:var(--muted);
       font-size:13px;
       margin-bottom:16px;
-      line-height:1.5;
+      line-height:1.6;
     }
 
     .form-grid{
@@ -172,40 +203,42 @@
 
     .field label{
       font-size:12px;
-      color:#334155;
+      color:#d7e6ff;
       font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.03em;
     }
 
     .field input,
     .field select{
       width:100%;
-      border:1px solid var(--line);
+      border:1px solid rgba(95,137,204,.34);
       border-radius:12px;
       padding:11px 12px;
-      background:#fff;
+      background:rgba(7,17,34,.92);
       font-size:14px;
-      color:var(--text);
+      color:#ffffff;
       outline:none;
     }
 
     .field input:focus,
     .field select:focus{
-      border-color:var(--secondary);
-      box-shadow:0 0 0 3px rgba(14,165,233,0.12);
+      border-color:rgba(21,230,255,.62);
+      box-shadow:0 0 0 3px rgba(21,230,255,0.12);
     }
 
     .summary-grid{
       display:grid;
       grid-template-columns:repeat(8, minmax(0,1fr));
       gap:14px;
-      margin:20px 0;
+      margin:18px 0;
     }
 
     .metric{
-      background:var(--card);
+      background:linear-gradient(180deg, rgba(8,20,40,.96) 0%, rgba(5,14,28,.96) 100%);
       border:1px solid var(--line);
       border-radius:18px;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow), var(--glow);
       padding:18px;
     }
 
@@ -223,12 +256,13 @@
       font-weight:800;
       line-height:1.1;
       margin-bottom:4px;
+      color:#ffffff;
     }
 
     .metric .mini{
       font-size:12px;
       color:var(--muted);
-      line-height:1.4;
+      line-height:1.5;
     }
 
     .section-title{
@@ -243,41 +277,44 @@
     .section-title h2{
       margin:0;
       font-size:22px;
+      color:#ffffff;
     }
 
     .section-title p{
       margin:3px 0 0;
       color:var(--muted);
       font-size:13px;
+      line-height:1.6;
     }
 
     .table-wrap{
       overflow:auto;
-      border:1px solid var(--line);
+      border:1px solid rgba(95,137,204,.18);
       border-radius:16px;
-      background:#fff;
+      background:rgba(7,17,34,.72);
     }
 
     table{
       width:100%;
       border-collapse:collapse;
       min-width:1400px;
-      background:#fff;
+      background:rgba(7,17,34,.72);
     }
 
     th, td{
       padding:12px 14px;
       text-align:left;
-      border-bottom:1px solid var(--line);
+      border-bottom:1px solid rgba(95,137,204,.14);
       font-size:13px;
       white-space:nowrap;
       vertical-align:middle;
+      color:#eaf3ff;
     }
 
     th{
-      background:#f8fafc;
-      color:#334155;
-      font-size:12px;
+      background:rgba(10,23,44,.92);
+      color:#9db8db;
+      font-size:11px;
       text-transform:uppercase;
       letter-spacing:0.3px;
       position:sticky;
@@ -285,7 +322,7 @@
       z-index:1;
     }
 
-    tr:hover td{ background:#fcfdff; }
+    tr:hover td{ background:rgba(12,29,54,.72); }
 
     .status{
       display:inline-block;
@@ -295,9 +332,9 @@
       font-weight:700;
     }
 
-    .safe{ background:var(--soft-success); color:#166534; }
-    .risk{ background:var(--soft-warning); color:#92400e; }
-    .gap{ background:var(--soft-danger); color:#991b1b; }
+    .safe{ background:var(--soft-success); color:var(--success); }
+    .risk{ background:var(--soft-warning); color:#eab84f; }
+    .gap{ background:var(--soft-danger); color:var(--danger); }
 
     .info-strip{
       display:grid;
@@ -307,8 +344,8 @@
     }
 
     .info-box{
-      background:#f8fafc;
-      border:1px solid var(--line);
+      background:rgba(11,25,48,.76);
+      border:1px solid var(--line-2);
       border-radius:14px;
       padding:14px;
     }
@@ -324,24 +361,31 @@
     .info-box .v{
       font-size:18px;
       font-weight:800;
+      color:#ffffff;
     }
 
     .inline-note{
       font-size:12px;
       color:var(--muted);
       margin-top:8px;
+      line-height:1.6;
     }
 
     .chart-card canvas{
       width:100% !important;
       height:320px !important;
+      background:rgba(7,17,34,.45);
+      border-radius:12px;
+      border:1px solid rgba(95,137,204,.14);
+      padding:10px;
     }
 
     details{
       border:1px solid var(--line);
       border-radius:16px;
-      background:#fff;
+      background:linear-gradient(180deg, rgba(8,20,40,.96) 0%, rgba(5,14,28,.96) 100%);
       overflow:hidden;
+      box-shadow:var(--shadow), var(--glow);
     }
 
     summary{
@@ -350,8 +394,9 @@
       padding:18px 20px;
       font-weight:800;
       font-size:16px;
-      background:#f8fafc;
-      border-bottom:1px solid var(--line);
+      background:rgba(10,23,44,.92);
+      border-bottom:1px solid rgba(95,137,204,.18);
+      color:#ffffff;
     }
 
     summary::-webkit-details-marker{ display:none; }
@@ -365,33 +410,34 @@
     }
 
     .formula-card{
-      border:1px solid var(--line);
+      border:1px solid var(--line-2);
       border-radius:14px;
       padding:16px;
-      background:#fff;
+      background:rgba(11,25,48,.76);
     }
 
     .formula-card h4{
       margin:0 0 10px;
       font-size:15px;
+      color:#ffffff;
     }
 
     .formula-card p{
       margin:0 0 10px;
       font-size:13px;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.6;
     }
 
     .formula{
       display:block;
-      background:#f8fafc;
-      border:1px solid var(--line);
+      background:rgba(7,17,34,.92);
+      border:1px solid rgba(95,137,204,.18);
       border-radius:12px;
       padding:10px 12px;
       font-family:Consolas, monospace;
       font-size:12px;
-      color:#0f172a;
+      color:#eaf3ff;
       overflow:auto;
     }
 
@@ -405,14 +451,22 @@
     .value-success{ color:var(--success); }
     .value-danger{ color:var(--danger); }
     .value-accent{ color:var(--warning); }
-    .value-primary{ color:var(--primary); }
+    .value-primary{ color:#8ff8ff; }
 
     .small-input{
       width:100px;
       padding:8px 10px;
-      border:1px solid var(--line);
+      border:1px solid rgba(95,137,204,.34);
       border-radius:10px;
       font-size:13px;
+      background:rgba(7,17,34,.92);
+      color:#ffffff;
+    }
+
+    .small-input:focus{
+      border-color:rgba(21,230,255,.62);
+      box-shadow:0 0 0 3px rgba(21,230,255,0.12);
+      outline:none;
     }
 
     .muted{ color:var(--muted); }
@@ -785,7 +839,7 @@
       </div>
     </section>
 
-    <section class="grid grid-2" style="margin-top:18px;">
+    <section class="grid grid-2" style="margin-top:18px;" id="chartsGrid">
       <div class="card chart-card">
         <h3>Required HC vs Final Available HC</h3>
         <div class="card-sub">Weekly comparison of requirement against final capacity after shrinkage and OT.</div>
@@ -844,10 +898,10 @@
         Export the planner for reporting or to continue working in Excel with structured inputs and calculated output.
       </div>
       <div class="grid grid-4">
-        <button class="btn btn-solid" style="background:var(--primary);" id="exportCsvBtn2">Export Dashboard CSV</button>
-        <button class="btn btn-solid" style="background:var(--secondary);" id="exportExcelBtn2">Export Excel Model</button>
-        <button class="btn btn-solid" style="background:var(--accent);" id="loadSampleBtn2">Reload Sample Data</button>
-        <button class="btn btn-solid" style="background:#334155;" id="recalcBtn">Recalculate</button>
+        <button class="btn btn-solid" style="background:rgba(9,21,42,.78);" id="exportCsvBtn2">Export Dashboard CSV</button>
+        <button class="btn btn-solid" style="background:rgba(9,21,42,.78);" id="exportExcelBtn2">Export Excel Model</button>
+        <button class="btn btn-solid" style="background:rgba(9,21,42,.78);" id="loadSampleBtn2">Reload Sample Data</button>
+        <button class="btn btn-solid" style="background:rgba(9,21,42,.78);" id="recalcBtn">Recalculate</button>
       </div>
       <div class="footer-note">
         Excel export includes Assumptions, Weekly Input, Weekly Calc, Monthly Summary, and Formula Glossary sheets.
@@ -943,6 +997,9 @@
   </div>
 
   <script>
+    Chart.defaults.color = "#cfe3ff";
+    Chart.defaults.borderColor = "rgba(95,137,204,.18)";
+
     const defaults = {
       planningMode: "Hybrid",
       displayView: "Combined View",
@@ -1667,7 +1724,7 @@
       $("weeklySections").style.display = weeklyVisible ? "grid" : "none";
       $("trainingSection").style.display = weeklyVisible ? "block" : "none";
       $("weeklyCapacitySection").style.display = weeklyVisible ? "block" : "none";
-      document.querySelector(".grid.grid-2[style='margin-top:18px;']")?.style;
+      $("chartsGrid").style.display = weeklyVisible ? "grid" : "none";
       $("monthlySection").style.display = monthlyVisible ? "block" : "none";
     }
 
